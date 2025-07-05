@@ -30,3 +30,49 @@ console.log(selectedColors); //[ 'yellow', 'purple', 'white', 'green', 'blue', '
 //Adicionando pulando psoições preenchidas:
 selectedColors[7] = 'gray'
 console.log(selectedColors); //['yellow','purple','white','green','blue','black',<1 empty item>,'gray']
+
+//functions
+function greetWithNoArguments() {
+    console.log('Hello World');
+}
+greetWithNoArguments(); //Hello World
+
+function greetWithArguments(name) {
+    console.log('Hello ' + name);
+}
+greetWithArguments('John'); //Hello John
+greetWithArguments('Mary'); //Hello Mary
+
+//function that returns value:
+function square(number) {
+    return number * number;
+}
+let result = square(2);
+console.log(result)
+
+console.log(square(3));
+
+// Operators
+let x = 10;
+let y = 3;
+
+console.log(x + y); //13
+console.log(x - y); //7
+console.log(x * y); //30
+console.log(x / y); //3.33333333333
+console.log(x % y); //1
+console.log(x ** y); //1000
+
+x = 10;
+
+console.log(x); //10
+console.log(++x); //11 incremented first then printed
+console.log(x++); //11 printed first then incremented
+console.log(x); //12
+
+x = 10;
+
+console.log(x); //10
+console.log(--x); //9 incremented first then printed
+console.log(x--); //9 printed first then decremented
+console.log(x); //8
