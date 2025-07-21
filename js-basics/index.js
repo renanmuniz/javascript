@@ -76,3 +76,31 @@ console.log(x); //10
 console.log(--x); //9 incremented first then printed
 console.log(x--); //9 printed first then decremented
 console.log(x); //8
+
+//Assignment Operators
+console.log('Assignment Operators')
+let x2 = 10;
+x2 += 1;
+console.log(x2); //11
+
+let x3 = 10;
+x3 *= 2;
+console.log(x3); //20
+
+//Comparison Operators
+console.log('Comparison Operators')
+let x4 = 1;
+console.log(x4 > 0); //true
+console.log(x4 > 10); //false
+console.log(x4 >= 1); //true
+console.log(x4 <= 1); //true
+console.log(x4 === 1); //true
+console.log(x4 !== 1); //false
+
+//Ternary Operators
+console.log('Ternary Operators')
+
+let points = 110;
+let type = points > 100 ? 'gold' : 'silver';
+console.log(type); //gold
+
