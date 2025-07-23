@@ -104,3 +104,43 @@ let points = 110;
 let type = points > 100 ? 'gold' : 'silver';
 console.log(type); //gold
 
+// Logical Operators
+console.log('Logical Operators');
+//AND &&
+console.log('AND Operator &&');
+console.log(true && true); //true
+console.log(true && false); //false
+console.log(false && true); //false
+console.log(false && false); //false
+
+//OR ||
+console.log('OR Operator ||');
+console.log(true || true); //true
+console.log(true || false); //true
+console.log(false || true); //true
+console.log(false || false); //false
+
+// NOT !
+console.log('NOT Operator !');
+console.log(!true); //false
+console.log(!false); //true
+
+// Logical operator with non-booleans values
+console.log('Logical operator with non-booleans values');
+console.log(false || 'John'); //John
+console.log(false || 9); //9
+console.log(false || undefined); //undefined
+console.log(false || null); //null
+console.log(null || 9); //9
+console.log(undefined || 9); //9
+console.log(false || 1 || 2 || 3); //1
+
+//Practical usage:
+let userColor = 'red';
+let defaultColor = 'blue (default)';
+let currentColor = userColor || defaultColor;
+console.log('COLOR: ' + currentColor); //red
+
+userColor = undefined;
+currentColor = userColor || defaultColor;
+console.log('COLOR: ' + currentColor); //blue (default)
