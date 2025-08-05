@@ -144,3 +144,113 @@ console.log('COLOR: ' + currentColor); //red
 userColor = undefined;
 currentColor = userColor || defaultColor;
 console.log('COLOR: ' + currentColor); //blue (default)
+
+// Conditional Statements
+//if-else statement
+let hour = 12; // Change this value to test different outputs
+if (hour < 12) {
+    console.log('Good morning');
+} else if (hour >= 12 && hour < 18) {
+    console.log('Good afternoon');
+} else {
+    console.log('Good evening');
+}
+
+//switch-case statement
+console.log('switch-case statement');
+let role;
+role = 'moderator';
+
+switch (role) {
+    case 'guest':
+        console.log('Guest user');
+        break;
+    case 'moderator':
+        console.log('Moderator user');
+        break;
+    case 'admin':
+        console.log('Admin user');
+        break;
+    default:
+        console.log('Unknown user role');
+}
+
+//For loop
+console.log('For loop:');
+
+for (let i = 0; i < 5; i++) {
+    console.log('For Iteration: ' + i);
+}
+
+//While loop
+console.log('While loop:');
+let i = 0;
+while (i < 5) {
+    console.log('While Iteration: ' + i);
+    i++;
+}
+
+//Do-While loop
+console.log('Do-While loop:');
+let j = 0;
+do {
+    console.log('Do-While Iteration: ' + j);
+    j++;
+} while (j < 5);
+
+//For...in loop
+//Used to iterate over object properties
+//Not recommended for arrays as it iterates over all enumerable properties, not just array indices.
+console.log('For...in loop:');
+const person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};
+
+for (let key in person)
+    console.log(key + ': ' + person[key]);
+
+//For...of loop
+//Used to iterate over iterable objects like arrays, strings, etc.
+console.log('For...of loop:');
+const colors = ['red', 'green', 'blue'];
+for (let color of colors) {
+    console.log(color);
+}
+
+//ForEach loop
+//Used to iterate over arrays, providing a cleaner syntax than for loops.
+console.log('ForEach loop:');
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(function (number) {
+    console.log('Number: ' + number);
+});
+
+//ForEach with arrow function
+console.log('ForEach with arrow function:');
+numbers.forEach(number => console.log('Number: ' + number));
+
+//ForEach with arrow function and index
+console.log('ForEach with arrow function and index:');
+numbers.forEach((number, index) => {
+    console.log('Index: ' + index + ', Number: ' + number);
+});
+
+//Break and Continue
+console.log('Break and Continue:');
+for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        console.log('Breaking at i = ' + i);
+        break; // Exits the loop when i is 5
+    }
+    console.log('i = ' + i);
+}
+
+for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+        console.log('Skipping even number: ' + i);
+        continue; // Skips the rest of the loop for even numbers
+    }
+    console.log('Odd number: ' + i);
+}
