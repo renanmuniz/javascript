@@ -449,3 +449,353 @@ console.log('UTC Date:', utcDate2.toISOString()); // UTC Date: 2025-08-21T12:00:
 const gmtMinus3 = utcDate2.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' });
 console.log('UTC to GMT-3: ', gmtMinus3); // Shows date/time in GMT-3
 
+//Arrays
+console.log('Arrays:');
+const numbers2 = [1, 2, 3, 4, 5];
+console.log(numbers2); // Original array: [1, 2, 3, 4, 5]
+
+numbers2.push(6);
+console.log(numbers2); // Original array: [1, 2, 3, 4, 5, 6]
+
+numbers2.unshift(0);
+console.log(numbers2); // Original array: [0, 1, 2, 3, 4, 5, 6]
+
+numbers2.splice(3, 0, 2.5); // Insert 2.5 at index 3
+console.log(numbers2); // Original array: [0, 1, 2, 2.5, 3, 4, 5, 6]
+
+//Finding primitives elements
+console.log('Finding primitives elements:');
+console.log('Index of 3:', numbers2.indexOf(3)); // Index of 3: 4
+console.log('Index of 10:', numbers2.indexOf(10)); // Index of 10: -1 (not found)
+console.log('Includes 4:', numbers2.includes(4)); // Includes 4: true
+console.log('Includes 10:', numbers2.includes(10)); // Includes 10: false
+
+//Finding reference elements
+console.log('Finding reference elements:');
+const courses = [
+    { id: 1, name: 'Node.js' },
+    { id: 2, name: 'JavaScript' },
+    { id: 3, name: 'React' }
+];
+const course = courses.find(function(course) {
+    return course.name === 'JavaScript';
+});
+console.log('Course found:', course); // Course found: { id: 2, name: 'JavaScript' }
+
+//Using arrow function
+const course2 = courses.find(c => c.name === 'React');
+console.log('Course found with arrow function:', course2); // Course found with arrow function: { id: 3, name: 'React' }
+
+// Removing elements
+console.log('Removing elements:');
+
+console.log('Removing the last element:');
+numbers2.pop();
+console.log('Array after pop:', numbers2); // Array after pop: [0, 1, 2, 2.5, 3, 4, 5]
+
+console.log('Removing the first element:');
+numbers2.shift();
+console.log('Array after shift:', numbers2); // Array after shift: [1, 2, 2.5, 3, 4, 5]
+
+console.log('Removing element at index 2:');
+numbers2.splice(2, 1); // Remove 1 element at index 2
+console.log('Array after splice:', numbers2); // Array after splice: [1, 2, 3, 4, 5]
+
+// Emptying an array
+console.log('Emptying an array:');
+let arrayToEmpty = [1, 2, 3, 4, 5];
+console.log('Original array:', arrayToEmpty); // Original array: [1, 2, 3, 4, 5]
+
+// Solution 1: Reassign to a new empty array
+arrayToEmpty = [];
+console.log('After reassigning to []:', arrayToEmpty); // After reassigning to []: []
+
+// Solution 2: Set length to 0
+arrayToEmpty = [1, 2, 3, 4, 5];
+arrayToEmpty.length = 0;
+console.log('After setting length to 0:', arrayToEmpty); // After setting length to 0: []
+
+// Solution 3: Splice the entire array
+arrayToEmpty = [1, 2, 3, 4, 5];
+arrayToEmpty.splice(0, arrayToEmpty.length);
+console.log('After splice(0, length):', arrayToEmpty); // After splice(0, length): []
+
+// Solution 4: Pop elements until empty
+arrayToEmpty = [1, 2, 3, 4, 5];
+while (arrayToEmpty.length > 0) {
+    arrayToEmpty.pop();
+}
+console.log('After popping all elements:', arrayToEmpty); // After popping all elements: []
+
+// Combining and Slicing Arrays
+console.log('Combining and Slicing Arrays:');
+
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combined = array1.concat(array2);
+console.log('Combined array using concat():', combined); // Combined array using concat(): [1, 2, 3, 4, 5, 6]
+
+const sliced = combined.slice(2, 5);
+console.log('Sliced array (index 2 to 5):', sliced); // Sliced array (index 2 to 5): [3, 4, 5]
+
+// Spread Operator
+console.log('Spread Operator:');
+
+const combinedWithSpread = [...array1, ...array2];
+console.log('Combined array using spread operator:', combinedWithSpread); // Combined array using spread operator: [1, 2, 3, 4, 5, 6]
+
+const copyOfArray1 = [...array1];
+console.log('Copy of array1 using spread operator:', copyOfArray1); // Copy of array1 using spread operator: [1, 2, 3]
+
+// Iterating an Array
+console.log('Iterating an Array:');
+
+const letters = ['a', 'b', 'c', 'd', 'e'];
+letters.forEach((letter) => {
+    console.log(`Letter: ${letter}`);
+});
+// Letter: a
+// Letter: b
+// Letter: c
+// Letter: d
+// Letter: e
+
+// Joining Arrays
+console.log('Joining Arrays:');
+
+const words = ['Hello', 'World', 'from', 'JavaScript'];
+
+console.log('Joined:', words.join()); //Hello,World,from,JavaScript
+
+const joinedWithSpace = words.join(' ');
+console.log('Joined with space:', joinedWithSpace); // Joined with space: Hello World from JavaScript
+
+const joinedWithDash = words.join('-');
+console.log('Joined with dash:', joinedWithDash); // Joined with dash: Hello-World-from-JavaScript
+
+const joinedWithEmpty = words.join('');
+console.log('Joined with empty string:', joinedWithEmpty); // Joined with empty string: HelloWorldfromJavaScript
+
+
+// Sorting an Array
+console.log('Sorting an Array:');
+
+const unsortedNumbers = [5, 3, 8, 1, 10 ,2];
+console.log('Unsorted numbers:', unsortedNumbers); // Unsorted numbers: [5, 3, 8, 1, 2]
+
+const sortedNumbers = unsortedNumbers.slice().sort();
+console.log('Sorted numbers (default):', sortedNumbers); // Sorted numbers (default): [1, 2, 3, 5, 8]
+
+const sortedNumbersDesc = unsortedNumbers.slice().sort((a, b) => b - a);
+console.log('Sorted numbers (descending):', sortedNumbersDesc); // Sorted numbers (descending): [8, 5, 3, 2, 1]
+
+const unsortedStrings = ['banana', 'apple', 'orange', 'mango'];
+console.log('Unsorted strings:', unsortedStrings); // Unsorted strings: ['banana', 'apple', 'orange', 'mango']
+
+const sortedStrings = unsortedStrings.slice().sort();
+console.log('Sorted strings (default):', sortedStrings); // Sorted strings (default): ['apple', 'banana', 'mango', 'orange']
+
+const sortedStringsDesc = unsortedStrings.slice().sort((a, b) => b.localeCompare(a));
+console.log('Sorted strings (descending):', sortedStringsDesc); // Sorted strings (descending): ['orange', 'mango', 'banana', 'apple']
+
+
+// Testing the elements of an array
+console.log('Testing the elements of an array:');
+
+const testNumbers = [1, 2, -3, 4, 5];
+
+const allGreaterThanZero = testNumbers.every(num => num > 0);
+console.log('All numbers greater than 0:', allGreaterThanZero); // All numbers greater than 0: true
+
+const someGreaterThanThree = testNumbers.some(num => num > 3);
+console.log('Some numbers greater than 3:', someGreaterThanThree); // Some numbers greater than 3: true
+
+
+// Filtering an array
+console.log('Filtering an array:');
+
+const mixedNumbers = [1, -2, 3, -4, 5];
+
+const positiveNumbers = mixedNumbers.filter(num => num > 0);
+console.log('Positive numbers:', positiveNumbers); // Positive numbers: [1, 3, 5]
+
+const negativeNumbers = mixedNumbers.filter(num => num < 0);
+console.log('Negative numbers:', negativeNumbers); // Negative numbers: [-2, -4]
+
+
+// Mapping an array
+console.log('Mapping an array:');
+
+const originalNumbers = [1, 2, 3, 4, 5];
+
+const doubledNumbers = originalNumbers.map(num => num * 2);
+console.log('Doubled numbers:', doubledNumbers); // Doubled numbers: [2, 4, 6, 8, 10]
+
+const squaredNumbers = originalNumbers.map(num => num * num);
+console.log('Squared numbers:', squaredNumbers); // Squared numbers: [1, 4, 9, 16, 25]
+
+
+// Reducing an array
+console.log('Reducing an array:');
+
+const numsToReduce = [1, 2, 3, 4, 5];
+
+const sum = numsToReduce.reduce((accumulator, current) => accumulator + current, 0);
+console.log('Sum of numbers:', sum); // Sum of numbers: 15
+
+const product = numsToReduce.reduce((accumulator, current) => accumulator * current, 1);
+console.log('Product of numbers:', product); // Product of numbers: 120
+
+// Function
+console.log('Function');
+
+// Function declaration
+// Can be called before its declaration due to hoisting:
+greet('Renan');
+
+function greet(name) {
+    console.log('Hello, ' + name);
+}
+greet('Alice'); // Hello, Alice
+
+// Anonymous Function Expression
+// Cannot be called before its declaration
+//console.log('Square of 4:', square2(10)); // ERROR square2 is not defined
+
+let square2 = function(number) {
+    return number * number;
+};
+
+console.log('Square of 4:', square2(4)); // Square of 4: 16
+
+let calculateSquare2 = square2;
+console.log(calculateSquare2(3)); //9
+
+// Arrow Function
+// Cannot be called before its declaration
+//console.log('Sum of 3 and 5:', add(3, 5)); // ERROR add is not defined
+
+let add = (a, b) => a + b;
+console.log('Sum of 3 and 5:', add(3, 5)); // Sum of 3 and 5: 8
+
+let logMessage = message => console.log(message);
+logMessage('This is an arrow function'); // This is an arrow function
+
+// Default Parameters
+function multiply(a, b = 1) {
+    return a * b;
+}
+console.log('Multiply 5 by default b:', multiply(5)); // Multiply 5 by default b: 5
+console.log('Multiply 5 by 2:', multiply(5, 2)); // Multiply 5 by 2: 10
+
+// Function arguments
+console.log('Function arguments');
+
+function sum2(a, b) {
+    return a + b;
+}
+
+console.log(sum2(1, 2)) //3
+console.log(sum2(1,4,7,10)) //5
+console.log(sum2(1, 'string')) //1string
+console.log(sum2(1)) //NaN because it is interpreted as 1 + undefined
+
+function sum3() {
+    let total = 0;
+    for (let value of arguments)
+        total += value;
+    return total;
+}
+
+console.log(sum3(1, 2)); //3
+console.log(sum3(1,4,7,10)); //22
+
+// The rest operator
+console.log('The rest operator');
+
+function printAllArguments(...args) {
+    console.log(args);
+}
+
+printAllArguments(1, 2); //[1,2]
+printAllArguments(1,4,7,10); //[1,4,7,10]
+printAllArguments(1, 'string', true, { name: 'John' }); //[1,'string',true,{name:'John'}]
+
+function sum4(...args) {
+    return args.reduce((a, b) => a + b, 0);
+}
+
+console.log(sum4(1, 2)); //3
+console.log(sum4(1,4,7,10)); //22
+
+function calculateShoppingCart(discount, ...prices) {
+    const total = prices.reduce((a, b) => a + b);
+    return total * (1 - discount);
+}
+
+console.log('TOTAL PRICE: ' + calculateShoppingCart(0.2, 100));
+
+// Spread operator
+const numbers3 = [1, 2, 3, 4];
+console.log(Math.max(numbers3)); //NaN
+console.log(Math.max(...numbers3)); //4
+
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+const combined2 = [...first, ...second];
+console.log(combined2); //[1,2,3,4,5,6]
+
+const clone3 = [...combined2];
+console.log(clone3); //[1,2,3,4,5,6]
+
+// Default Parameters
+function interest(principal, rate = 3.5, years = 5) {
+    return principal * rate / 100 * years;
+}
+
+console.log(interest(10000)); //1750
+console.log(interest(10000, 4.5)); //2250
+console.log(interest(10000, 4.5, 10)); //4500
+
+// Getters and Setters
+console.log('Getters and Setters');
+
+const person2 = {
+    firstName: 'John',
+    lastName: 'Doe',
+
+    get fullname() {
+        return `${person2.firstName} ${person2.lastName}`;
+    },
+    set fullNmae(value) {
+       const parts = value.split(' ');
+       this.firstName = parts[0];
+       this.lastName = parts[1];
+    }
+};
+
+console.log(person2.fullname); // John Doe
+
+person2.fullNmae = 'Mary Jane';
+
+console.log(person2.fullname); // Mary Jane
+
+
+// Error Handling
+console.log('Error Handling');
+
+function divide(a, b) {
+    if (b === 0)
+        throw new Error('Division by zero is not allowed.');
+    return a / b;
+}
+
+try {
+    console.log(divide(10, 2)); // 5
+    console.log(divide(10, 0)); // This will throw an error
+} catch (error) {
+    console.error('Error:', error.message); // Error: Division by zero is not allowed.
+} finally {
+    console.log('Execution completed.'); // This will always execute
+}
+
